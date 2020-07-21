@@ -1,7 +1,6 @@
 import {
   ILayer,
   ILayerPlugin,
-  ILogService,
   IStyleAttributeService,
   TYPES,
 } from '@antv/l7-core';
@@ -12,9 +11,6 @@ import { inject, injectable } from 'inversify';
  */
 @injectable()
 export default class UpdateStyleAttributePlugin implements ILayerPlugin {
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
-
   public apply(
     layer: ILayer,
     {
@@ -65,9 +61,6 @@ export default class UpdateStyleAttributePlugin implements ILayerPlugin {
           attribute.featureRange.endIndex,
         );
         attribute.needRegenerateVertices = false;
-        this.logger.debug(
-          `regenerate vertex attributes: ${attribute.name} finished`,
-        );
       });
   }
 
@@ -89,7 +82,6 @@ export default class UpdateStyleAttributePlugin implements ILayerPlugin {
           attribute.featureRange.endIndex,
         );
         attribute.needRegenerateVertices = false;
-        this.logger.debug(`init vertex attributes: ${attribute.name} finished`);
       });
   }
 }

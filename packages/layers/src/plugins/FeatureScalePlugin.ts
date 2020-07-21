@@ -2,7 +2,6 @@ import {
   IGlobalConfigService,
   ILayer,
   ILayerPlugin,
-  ILogService,
   IScale,
   IScaleOptions,
   IStyleAttribute,
@@ -40,9 +39,6 @@ const scaleMap = {
 export default class FeatureScalePlugin implements ILayerPlugin {
   @inject(TYPES.IGlobalConfigService)
   private readonly configService: IGlobalConfigService;
-
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
 
   // key = field_attribute name
   private scaleCache: {
@@ -96,7 +92,6 @@ export default class FeatureScalePlugin implements ILayerPlugin {
         );
         if (attributesToRescale.length) {
           this.caculateScalesForAttributes(attributesToRescale, dataArray);
-          this.logger.debug('rescale finished');
         }
       }
     });

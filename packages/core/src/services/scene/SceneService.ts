@@ -21,7 +21,6 @@ import {
 } from '../interaction/IInteractionService';
 import { IPickingService } from '../interaction/IPickingService';
 import { ILayer, ILayerService } from '../layer/ILayerService';
-import { ILogService } from '../log/ILogService';
 import { IMapCamera, IMapConfig, IMapService } from '../map/IMapService';
 import { IRenderConfig, IRendererService } from '../renderer/IRendererService';
 import { IShaderModuleService } from '../shader/IShaderModuleService';
@@ -49,9 +48,6 @@ export default class Scene extends EventEmitter implements ISceneService {
 
   @inject(TYPES.IControlService)
   private readonly controlService: IControlService;
-
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
 
   @inject(TYPES.IGlobalConfigService)
   private readonly configService: IGlobalConfigService;
@@ -158,7 +154,6 @@ export default class Scene extends EventEmitter implements ISceneService {
         InteractionEvent.Drag,
         this.addSceneEvent.bind(this),
       );
-      this.logger.debug(`map ${this.id} loaded`);
     });
 
     /**
@@ -182,12 +177,8 @@ export default class Scene extends EventEmitter implements ISceneService {
         window
           .matchMedia('screen and (-webkit-min-device-pixel-ratio: 1.5)')
           .addListener(this.handleWindowResized);
-      } else {
-        this.logger.error('容器 id 不存在');
       }
       this.pickingService.init(this.id);
-
-      this.logger.debug(`scene ${this.id} renderer loaded`);
     });
     // TODO：init worker, fontAtlas...
 
@@ -199,7 +190,6 @@ export default class Scene extends EventEmitter implements ISceneService {
   }
 
   public addLayer(layer: ILayer) {
-    this.logger.debug(`add layer ${layer.name} to scene ${this.id}`);
     this.layerService.add(layer);
     this.render();
   }
@@ -218,7 +208,6 @@ export default class Scene extends EventEmitter implements ISceneService {
         this.destroy();
       }
       // FIXME: 初始化 marker 容器，可以放到 map 初始化方法中？
-      this.logger.info(' render inited');
       this.layerService.initLayers();
       this.controlService.addControls();
       this.loaded = true;
@@ -229,8 +218,6 @@ export default class Scene extends EventEmitter implements ISceneService {
     // 尝试初始化未初始化的图层
     this.layerService.renderLayers();
     // 组件需要等待layer 初始化完成之后添加
-
-    this.logger.debug(`scene ${this.id} render`);
 
     this.rendering = false;
   }

@@ -7,7 +7,6 @@ import {
   ICoordinateSystemService,
   IGlobalConfigService,
   ILngLat,
-  ILogService,
   IMapConfig,
   IMapService,
   IMercator,
@@ -55,8 +54,6 @@ export default class MapboxService
   @inject(TYPES.IGlobalConfigService)
   private readonly configService: IGlobalConfigService;
 
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
   @inject(TYPES.ICoordinateSystemService)
   private readonly coordinateSystemService: ICoordinateSystemService;
 
@@ -302,21 +299,6 @@ export default class MapboxService
      * TODO: 使用 mapbox v0.53.x 版本 custom layer，需要共享 gl context
      * @see https://github.com/mapbox/mapbox-gl-js/blob/master/debug/threejs.html#L61-L64
      */
-
-    // 判断全局 mapboxgl 对象的加载
-    if (!mapInstance && !window.mapboxgl) {
-      // 用户有时传递进来的实例是继承于 mapbox 实例化的，不一定是 mapboxgl 对象。
-      this.logger.error(this.configService.getSceneWarninfo('SDK'));
-    }
-
-    if (
-      token === MAPBOX_API_KEY &&
-      style !== 'blank' &&
-      !window.mapboxgl.accessToken &&
-      !mapInstance // 如果用户传递了 mapInstance，应该不去干预实例的 accessToken。
-    ) {
-      this.logger.warn(this.configService.getSceneWarninfo('MapToken'));
-    }
 
     // 判断是否设置了 accessToken
     if (!mapInstance && !window.mapboxgl.accessToken) {

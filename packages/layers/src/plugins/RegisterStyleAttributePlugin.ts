@@ -4,7 +4,6 @@ import {
   IEncodeFeature,
   ILayer,
   ILayerPlugin,
-  ILogService,
   IStyleAttributeService,
   TYPES,
 } from '@antv/l7-core';
@@ -15,9 +14,6 @@ import { inject, injectable } from 'inversify';
  */
 @injectable()
 export default class RegisterStyleAttributePlugin implements ILayerPlugin {
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
-
   public apply(
     layer: ILayer,
     {

@@ -3,7 +3,6 @@ import Hammer from 'hammerjs';
 import { inject, injectable } from 'inversify';
 // @ts-ignore
 import { TYPES } from '../../types';
-import { ILogService } from '../log/ILogService';
 import { ILngLat, IMapService } from '../map/IMapService';
 import { IInteractionService, InteractionEvent } from './IInteractionService';
 const DragEventMap: { [key: string]: string } = {
@@ -21,9 +20,6 @@ export default class InteractionService extends EventEmitter
   implements IInteractionService {
   @inject(TYPES.IMapService)
   private readonly mapService: IMapService;
-
-  @inject(TYPES.ILogService)
-  private readonly logger: ILogService;
 
   private hammertime: HammerManager;
 
@@ -87,9 +83,6 @@ export default class InteractionService extends EventEmitter
       $containter.addEventListener('contextmenu', this.onHover);
 
       this.hammertime = hammertime;
-
-      // TODO: 根据场景注册事件到 L7 canvas 上
-      this.logger.debug('add event listeners on canvas');
     }
   }
   private removeEventListenerOnMap() {
