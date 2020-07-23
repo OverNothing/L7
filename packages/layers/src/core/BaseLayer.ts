@@ -45,7 +45,10 @@ import Source from '@antv/l7-source';
 import { encodePickingColor } from '@antv/l7-utils';
 import { EventEmitter } from 'eventemitter3';
 import { Container } from 'inversify';
-import { isFunction, isObject } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isFunction from 'lodash/isFunction';
+// tslint:disable-next-line:no-submodule-imports
+import isObject from 'lodash/isObject';
 // @ts-ignore
 import mergeJsonSchemas from 'merge-json-schemas';
 import { normalizePasses } from '../plugins/MultiPassRendererPlugin';

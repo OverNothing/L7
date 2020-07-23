@@ -1,5 +1,6 @@
 import { injectable } from 'inversify';
-import { isNil } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isNil from 'lodash/isNil';
 import blur from '../../../../shaders/post-processing/blur.glsl';
 import quad from '../../../../shaders/post-processing/quad.glsl';
 import { IUniform } from '../../IUniform';

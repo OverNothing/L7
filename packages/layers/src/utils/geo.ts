@@ -1,5 +1,6 @@
 type Position = number[];
-import { isNumber } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isNumber from 'lodash/isNumber';
 export function calculteCentroid(
   coord: Position | Position[] | Position[][],
 ): Position {

@@ -16,7 +16,12 @@ import { IParseDataItem } from '@antv/l7-source';
 import { extent, ticks } from 'd3-array';
 import * as d3 from 'd3-scale';
 import { inject, injectable } from 'inversify';
-import { isNil, isString, uniq } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isNil from 'lodash/isNil';
+// tslint:disable-next-line:no-submodule-imports
+import isString from 'lodash/isString';
+// tslint:disable-next-line:no-submodule-imports
+import uniq from 'lodash/uniq';
 
 const dateRegex = /^(?:(?!0000)[0-9]{4}([-/.]+)(?:(?:0?[1-9]|1[0-2])\1(?:0?[1-9]|1[0-9]|2[0-8])|(?:0?[13-9]|1[0-2])\1(?:29|30)|(?:0?[13578]|1[02])\1(?:31))|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)([-/.]?)0?2\2(?:29))(\s+([01]|([01][0-9]|2[0-3])):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9]))?$/;
 

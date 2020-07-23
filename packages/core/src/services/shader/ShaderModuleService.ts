@@ -1,5 +1,6 @@
 import { inject, injectable } from 'inversify';
-import { uniq } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import uniq from 'lodash/uniq';
 import { extractUniforms } from '../../utils/shader-module';
 import { IModuleParams, IShaderModuleService } from './IShaderModuleService';
 

@@ -1,5 +1,10 @@
 import { inject, injectable } from 'inversify';
-import { camelCase, isNil, upperFirst } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import camelCase from 'lodash/camelCase';
+// tslint:disable-next-line:no-submodule-imports
+import isNil from 'lodash/isNil';
+// tslint:disable-next-line:no-submodule-imports
+import upperFirst from 'lodash/upperFirst';
 import {
   gl,
   IModel,

@@ -20,7 +20,12 @@ import {
   Properties,
 } from '@turf/helpers';
 import { EventEmitter } from 'eventemitter3';
-import { cloneDeep, isFunction, isString } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import cloneDeep from 'lodash/cloneDeep';
+// tslint:disable-next-line:no-submodule-imports
+import isFunction from 'lodash/isFunction';
+// tslint:disable-next-line:no-submodule-imports
+import isString from 'lodash/isString';
 // @ts-ignore
 // tslint:disable-next-line:no-submodule-imports
 import Supercluster from 'supercluster/dist/supercluster';

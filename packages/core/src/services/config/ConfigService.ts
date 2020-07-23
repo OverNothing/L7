@@ -1,6 +1,7 @@
 // import Ajv from 'ajv';
 import { injectable, postConstruct } from 'inversify';
-import { merge } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import merge from 'lodash/merge';
 import { ILayerConfig } from '../layer/ILayerService';
 import { IRenderConfig } from '../renderer/IRendererService';
 import { IGlobalConfigService, ISceneConfig } from './IConfigService';

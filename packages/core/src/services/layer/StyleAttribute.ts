@@ -1,4 +1,5 @@
-import { isNil } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isNil from 'lodash/isNil';
 import {
   IAttributeScale,
   IScaleOption,

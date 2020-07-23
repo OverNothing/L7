@@ -6,7 +6,10 @@ import {
   IModelInitializationOptions,
   IUniform,
 } from '@antv/l7-core';
-import { isPlainObject, isTypedArray } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import isPlainObject from 'lodash/isPlainObject';
+// tslint:disable-next-line:no-submodule-imports
+import isTypedArray from 'lodash/isTypedArray';
 import regl from 'regl';
 import {
   blendEquationMap,

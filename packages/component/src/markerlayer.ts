@@ -9,7 +9,8 @@ import {
 } from '@antv/l7-utils';
 import { EventEmitter } from 'eventemitter3';
 import { Container } from 'inversify';
-import { merge } from 'lodash';
+// tslint:disable-next-line:no-submodule-imports
+import merge from 'lodash/merge';
 // @ts-ignore
 // tslint:disable-next-line:no-submodule-imports
 import Supercluster from 'supercluster/dist/supercluster';
