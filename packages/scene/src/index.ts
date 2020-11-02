@@ -95,7 +95,7 @@ class Scene
     );
     this.popupService = sceneContainer.get<IPopupService>(TYPES.IPopupService);
 
-    this.initComponent(id);
+    // this.initComponent(id);
 
     // 初始化 scene
     this.sceneService.init(config);

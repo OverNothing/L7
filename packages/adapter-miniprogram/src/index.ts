@@ -64,7 +64,7 @@ export {
   HTMLVideoElement,
   Image,
   navigator,
-  Node,
+  // Node,
   requestAnimationFrame,
   cancelAnimationFrame,
   screen,

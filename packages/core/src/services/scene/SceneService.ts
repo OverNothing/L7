@@ -161,9 +161,10 @@ export default class Scene extends EventEmitter implements ISceneService {
      */
     this.hooks.init.tapPromise('initRenderer', async () => {
       // 创建底图之上的 container
-      const $container = createRendererContainer(
-        this.configService.getSceneConfig(this.id).id || '',
-      );
+      const $container = document.getElementById('canvas');
+      // const $container = createRendererContainer(
+      //   this.configService.getSceneConfig(this.id).id || '',
+      // );
       this.$container = $container;
       if ($container) {
         await this.rendererService.init(

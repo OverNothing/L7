@@ -1,3 +1,4 @@
+import './transform-runtime';
 import container, {
   createLayerContainer,
   createSceneContainer,
